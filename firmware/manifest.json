@@ -1,0 +1,9 @@
+{
+  "include": ["$(MODDABLE)/examples/manifest_mod.json"],
+  "modules": {
+    "*": ["./mod", "./dance-player", "./pcm-audio"]
+  },
+  "resources": {
+    "*": ["../build/dance.json", "../build/playback.pcm"]
+  }
+}

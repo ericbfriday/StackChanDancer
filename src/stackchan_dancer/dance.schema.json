@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Stack-chan Dance v1 (custom format)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["format", "version", "duration_ms", "audio", "bpm", "profile", "motion", "face"],
+  "properties": {
+    "format": {"const": "stackchan-dance"},
+    "version": {"const": 1},
+    "duration_ms": {"type": "integer", "minimum": 100, "maximum": 3600000},
+    "bpm": {"type": "number", "minimum": 0},
+    "profile": {"const": "conservative-v1"},
+    "audio": {
+      "type": "object", "additionalProperties": false,
+      "required": ["file", "sample_rate", "channels", "encoding", "samples", "sha256"],
+      "properties": {
+        "file": {"const": "playback.pcm"},
+        "sample_rate": {"const": 22050},
+        "channels": {"const": 1},
+        "encoding": {"const": "s16le"},
+        "samples": {"type": "integer", "minimum": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "motion": {
+      "type": "array", "minItems": 2, "maxItems": 50000,
+      "items": {
+        "type": "array", "minItems": 3, "maxItems": 3,
+        "prefixItems": [
+          {"type": "integer", "minimum": 0},
+          {"type": "number", "minimum": 70, "maximum": 110},
+          {"type": "number", "minimum": 78, "maximum": 102}
+        ]
+      }
+    },
+    "face": {
+      "type": "array", "minItems": 1, "maxItems": 50000,
+      "items": {
+        "type": "array", "minItems": 2, "maxItems": 2,
+        "prefixItems": [
+          {"type": "integer", "minimum": 0},
+          {"type": "integer", "minimum": 0, "maximum": 3}
+        ]
+      }
+    }
+  }
+}

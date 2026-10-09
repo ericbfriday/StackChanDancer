@@ -1,0 +1,6 @@
+{
+  "name": "stackchan-dancer-scheduler-tests",
+  "private": true,
+  "type": "module",
+  "scripts": {"test": "node --test tests/timeline.test.mjs"}
+}

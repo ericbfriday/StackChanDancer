@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stackchan-dancer"
+version = "0.1.0"
+description = "Offline music analysis and bounded choreography for Stack-chan robots"
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+  "librosa==0.11.0",
+  "numpy>=1.26,<3",
+  "scipy>=1.11,<2",
+  "soundfile>=0.12,<1",
+  "jsonschema>=4.21,<5",
+]
+
+[project.scripts]
+stackchan-dancer = "stackchan_dancer.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+stackchan_dancer = ["*.json"]

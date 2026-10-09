@@ -1,0 +1,25 @@
+# Local music and derived assets must never be published accidentally.
+*.mp3
+*.wav
+*.m4a
+*.aac
+*.flac
+*.ogg
+*.opus
+*.pcm
+*.maud
+build/
+dist/
+output/
+outputs/
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.DS_Store
+.env
+.env.*
+!.env.example
+*.pem
+*.key
